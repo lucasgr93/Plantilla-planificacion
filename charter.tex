@@ -1,7 +1,7 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %codirector, % Uncomment to add a codirector to the title page
-]{charter} 
+]{charter}
 
 
 
@@ -17,7 +17,7 @@
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Lucas Gabriel Robles}
+\autor{Ing. Lucas Gabriel Robles}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{-}
@@ -96,7 +96,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en una red de sensores inalámbricos que detecten la ausencia de tensión y/o corriente en una subestación transformadora de distribución de baja tensión, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en una red de sensores inalámbricos que detecten la ausencia de tensión y/o corriente en una subestación transformadora de distribución de baja tensión, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,7 +106,7 @@ Se adjunta a esta acta la planificación inicial.
 \begin{table}[ht]
 \centering
 \begin{tabular}{ccc}
-\begin{tabular}[c]{@{}c@{}}Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\ 
+\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\ 
 \multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular}} \vspace{2.5cm} \\
 %\begin{tabular}[c]{@{}c@{}}\jurunoname \\ Jurado del Trabajo Final\end{tabular}     &  & \begin{tabular}[c]{@{}c@{}}\jurdosname\\ Jurado del Trabajo Final\end{tabular}  \vspace{2.5cm}  \\
 %\multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \jurtresname\\ Jurado del Trabajo Final\end{tabular}} \vspace{.5cm}                                                                     
@@ -120,19 +120,18 @@ Se adjunta a esta acta la planificación inicial.
 \label{sec:descripcion}
 
 Uno de los principales objetivos de una empresa de distribución eléctrica es mantener los índices de calidad de servicio y producto técnico dentro de determinados parámetros predefinidos para garantizar que el usuario final goce de una buena calidad de suministro eléctrico. Es por esta razón que la gestión de la calidad de producto técnico se ocupa de que la onda de tensión suministrada se encuentre dentro de los umbrales establecidos por la entidad reguladora, mientras que la gestión de la calidad de servicio técnico se encarga de minimizar el tiempo y la frecuencia de las interrupciones del suministro eléctrico.
-Gracias al avance tecnológico, se pudieron adoptar nuevos sistemas capaces de optimizar la gestión de reclamos por falta de suministro, lo que permitió agilizar el proceso de restablecimiento del servicio y, por consiguiente, aminorar el tiempo en el que un cliente se encuentra desenergizado. A pesar de ello, estos sistemas pueden carecer de precisión al momento de determinar las posibles causas y las zonas afectadas por la interrupción, lo que en ocasiones resulta en una mala gestión de los recursos y las tareas. Por esta razón, se propone implementar la utilización de un sistema electrónico embebido que sea capaz de sensar a nivel de cada subestación transformadora de baja tensión el estado del suministro eléctrico, lo que permitirá, en caso de ocurrir una interrupción, detectarla inmediatamente y así poder contar con una mayor velocidad de respuesta, mayor precisión, menor tiempo de reposición del servicio y menor cantidad de personal abocado a estas tareas.
-En la figura 1 se muestra el diagrama en bloques del sistema propuesto, en el que se pueden diferenciar dos componentes principales: el nodo sensor (izquierda) y el concentrador o \textit{Gateway} (derecha).
+Gracias al avance tecnológico, se pudieron adoptar nuevos sistemas capaces de optimizar la gestión de reclamos por falta de suministro, lo que permitió agilizar el proceso de restablecimiento del servicio y, por consiguiente, aminorar el tiempo en el que un cliente se encuentra desenergizado. A pesar de ello, estos sistemas pueden carecer de precisión al momento de determinar las posibles causas y las zonas afectadas por la interrupción, lo que en ocasiones resulta en una mala gestión de los recursos y las tareas. Por lo expuesto, se le propone a la Empresa de Distribución Eléctrica de Tucumán (EDET SA) implementar la utilización de un sistema electrónico embebido que sea capaz de sensar a nivel de cada subestación transformadora de baja tensión el estado del suministro eléctrico. Esto permitirá, en caso de ocurrir una interrupción, detectarla inmediatamente y así poder contar con una mayor velocidad de respuesta, mayor precisión, menor tiempo de reposición del servicio y menor cantidad de personal abocado a estas tareas. En la Figura 1 se muestra el diagrama en bloques del sistema propuesto, en el que se pueden diferenciar dos componentes principales: el nodo sensor (izquierda) y el concentrador o \textit{Gateway} (derecha).
 
 \begin{figure}[htpb]
 \centering 
 \includegraphics[width=.7\textwidth]{./Figuras/image1.png}
-\caption{Diagrama en bloques del sistema}
+\caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
 El concentrador o \textit{Gateway} será el encargado de gestionar y monitorear la red de nodos sensores y de almacenar la información que luego será consultada por la \textit{RTU}. Estará conformado por un microcontrolador de 32 bits, una fuente de alimentación que puede adicionalmente funcionar como cargador de baterías, un módulo de conectividad inalámbrica mediante el cual se comunicará con los nodos sensores y un puerto de comunicaciones para la conexión con la \textit{RTU}. 
 Respecto al módulo RF, en principio se propone utilizar alguna tecnología \textit{LPWAN }(\textit{Low Power Wide Area Network}) para minimizar el consumo de energía y proporcionar un largo alcance. En cuanto a las comunicaciones con la unidad remota, se propone utilizar el protocolo Modbus-RTU o Modbus-TCP.
-Los nodos sensores serán los encargados de traducir las variables analógicas (tensiones y/o corrientes) en señales digitales ON-OFF que se activarán si se superan unos umbrales predefinidos; luego, estas serán transmitidas hacia el concentrador. Se propone que sea de esta manera para minimizar la cantidad de información enviada, lo que permitirá ahorrar espacio de almacenamiento, reducir la cantidad de información transmitida hacia el sistema SCADA y reducir los tiempos de actualización de los estados y las alarmas. También se prevé que cada nodo sensor posea una fuente de alimentación capaz de obtener su energía sin necesidad de conectarla a la red de 220V, siendo las opciones más probables las que operen con energía solar o inducción magnética. La intención de esta prestación es la de facilitar la instalación del sistema, además de reducir el riesgo eléctrico al eliminar la necesidad de conectarse directamente a la red de baja tensión.
+Los nodos sensores serán los encargados de traducir las variables analógicas (tensiones y/o corrientes) en señales digitales binarias \textit{ON-OFF} que se activarán si se superan los umbrales predefinidos; luego, estas serán transmitidas hacia el concentrador. Se propone que sea de esta manera para minimizar la cantidad de información enviada, lo que permitirá ahorrar espacio de almacenamiento, reducir la cantidad de información transmitida hacia el sistema SCADA y reducir los tiempos de actualización de los estados y las alarmas. También se prevé que cada nodo sensor posea una fuente de alimentación capaz de obtener su energía sin necesidad de conectarla a la red de 220 V, siendo las opciones más probables las que operen con energía solar o inducción magnética. La intención de esta prestación es la de facilitar la instalación del sistema, además de reducir el riesgo eléctrico al eliminar la necesidad de conectarse directamente a la red de baja tensión.
 Al igual que el concentrador, los nodos también contarán con un microcontrolador de 32 bits, aunque se espera que estos sean de baja potencia o que admitan trabajar en modos de ultra bajo consumo o \textit{deep-sleep}. También se utilizarán los mismos módulos RF \textit{LPWAN} para la comunicación con el \textit{Gateway}.
 
 
@@ -164,7 +163,7 @@ Usuario final &       EDET SA     &              	&        	\\ \hline
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-Mejora de la calidad del servicio eléctrico brindado por la distribuidora mediante la obtención de información precisa y en timpo real sobre el estado del suministro eléctrico en subestaciones transformadoras (SETS) de baja tensión a través de un sistema distribuido de sensores inalámbricos que detecten la presencia de tensión y/o corriente en cada una de las salidas de baja tensión de las SETS.
+Mejora de la calidad del servicio eléctrico brindado por la distribuidora mediante la obtención de información precisa y en tiempo real sobre el estado del suministro eléctrico en subestaciones transformadoras (SETS) de baja tensión a través de un sistema distribuido de sensores inalámbricos que detecten la presencia de tensión y/o corriente en cada una de las salidas de baja tensión de las SETS.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
@@ -180,113 +179,152 @@ No se incluye en el desarrollo del proyecto la encriptación de la información 
 Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Se podrá adquirir todos los componentes necesarios para el desarrollo de los dispositivos
-	\item Se podrán realizar pruebas de campo en instalaciones reales
-	\item Se podrá utilizar una unidad de transmisión remota de la distribuidora para enviar la información al sistema SCADA
+	\item Se podrá adquirir todos los componentes necesarios para el desarrollo de los dispositivos.
+	\item Se podrán realizar pruebas de campo en instalaciones reales.
+	\item Se podrá utilizar una unidad de transmisión remota de la distribuidora para enviar la información al sistema SCADA.
+	\item Se podrán dedicar al menos 15 horas semanales al desarrollo del proyecto.
+	\item Se podrá finalizar el proyecto en 600 horas o menos.
 \end{itemize}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
-
 \begin{enumerate}
 	\item Requerimientos funcionales
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item Los dispositivos deben ser de tipo \textit{Plug and Play}.
+			\item La distancia mínima de comunicación entre los nodos y el \textit{Gateway} debe ser de 3 metros.
+			\item El emparejamiento entre los nodos y el \textit{Gateway} debe ser automática.
+			\item Tanto el \textit{Gateway} como los nodos sensores deben almacenar la información de la red en memoria no volátil.
+			\item Los nodos sensores deben enviar el estado del suministro eléctrico cada 1 minuto.
 		\end{enumerate}
-	\item Requerimientos de documentación
+	\item Requerimientos de hardware
 		\begin{enumerate}
-			\item Requerimiento 1
-			\item Requerimiento 2 (prioridad menor)
+			\item El \textit{Gateway} debe estar basado en un microcontrolador ESP32 del fabricante Espressif.
+			\item Cada nodo sensor debe estar basado en un microcontrolador ESP8266 del fabricante Espressif.
+			\item El \textit{Gateway} debe contar con una fuente de alimentación universal de 220VAC.
+			\item Los nodos sensores deben poseer una fuente de alimentación que utilice energía solar o inducción magnética.
+			\item Los nodos sensores deben poseer 3 entradas de corriente o tensión, las cuales:
+				\begin{itemize}
+					\item se deben conectar a la línea de baja tensión (220/380 VAC) por intermedio de transformadores de corriente o de tensión,
+					\item deben soportar hasta 100 A o 1000 V en el lado primario,
+					\item deben soportar hasta 1 A o 5 V en el lado secundario.
+				\end{itemize}						
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimiento firmware
+		\begin{enumerate}
+			\item El firmware del \textit{Gateway} debe:
+				\begin{itemize}
+					\item administrar la red de nodos sensores y poseer un algoritmo para registrarlos y desvincularlos de esta,
+					\item almacenar la información de cada uno de los nodos sensores registrados en la red,
+					\item consultar el estado y las mediciones de los nodos sensores,
+					\item almacenar la información obtenida de los sensores en una base de datos Modbus,
+					\item proveer una interfaz de comunicación que permita que la base de datos sea consultada por una RTU.
+				\end{itemize}
+			\item El firmware de los nodos sensores debe:
+				\begin{itemize}
+					\item procesar las señales analógicas y convertirlas en señales digitales binarias \textit{ON-OFF} que indiquen el estado del suministro eléctrico,
+					\item transmitir el estado del suministro hacia el \textit{Gateway} a través del módulo RF \textit{LPWAN},
+					\item poner en modo de bajo consumo al microcontrolador y al módulo RF mientras no se esté transmitiendo información.
+				\end{itemize}
+		\end{enumerate}
 \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+Se analizan las historias de usuario con los índices de ponderación, que representan el valor que
+aporta la historia de usuario al cliente o usuario y con el índice de prioridad, que refleja el orden
+de importancia en la implementación de las historias. Se valora cada dimensión de 1 a 10, donde
+10 representa la ponderación o prioridad más alta. Los \textit{story points} se calculan como la suma
+de la ponderación y la prioridad.
 
-El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
+Como encargado del área de calidad de servicio, quiero conocer en tiempo real el estado del suministro eléctrico de cada subestación transformadora para reducir el tiempo en el que los usuarios se encuentran sin suministro.
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-\end{consigna}
+\begin{itemize}
+	\item Ponderación: 10.
+	\item Prioridad: 8.
+	\item \textit{Story Points:} 18.
+\end{itemize}
+
+Como encargado del área de operaciones, quiero conocer en todo momento el estado de la red de distribución para poder contar con mayor información posible a la hora de realizar las operaciones.
+
+\begin{itemize}
+	\item Ponderación: 6.
+	\item Prioridad: 5.
+	\item \textit{Story Points:} 11.
+\end{itemize}
+
+Como encargado del área de reclamos, quiero conocer de manera inequívoca e inmediata las zonas que se encuentran afectadas por un corte de energía para poder gestionar eficientemente los recursos humanos con los que contamos.
+
+\begin{itemize}
+	\item Ponderación: 9.
+	\item Prioridad: 7.
+	\item \textit{Story Points:} 16.
+\end{itemize}
+
+Como encargado del área de mantenimiento de la red, quiero conocer cuáles son las subestaciones transformadoras o las zonas con mayor tasa de fallas para realizar un mejor plan de mantenimiento y enfocar las inversiones en esos lugares.
+
+\begin{itemize}
+	\item Ponderación: 5.
+	\item Prioridad: 4.
+	\item \textit{Story Points:} 9.
+\end{itemize}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-
-Los entregables del proyecto son (ejemplo):
+Los entregables del proyecto son:
 
 \begin{itemize}
-	\item Manual de uso
-	\item Diagrama de circuitos esquemáticos
-	\item Código fuente del firmware
-	\item Diagrama de instalación
-	\item Informe final
-	\item etc...
+	\item Manual de uso.
+	\item Diagrama de instalación.
+	\item Listado de materiales.
+	\item Diagramas esquemáticos.
+	\item Informe final.
 \end{itemize}
-
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
 
 \begin{enumerate}
-\item Grupo de tareas 1
+\item Gestión y documentación (200 horas).
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Planificación del proyecto (40 horas).
+	\item Documentación de avances (20 horas).
+	\item Confección de la memoria técnica (80 horas).
+	\item Elaboración de la presentación final (20 horas).
+	\item Redacción del manual de usuario (40 horas).
 	\end{enumerate}
-\item Grupo de tareas 2
+\item Desarrollo de hardware (230 horas).
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Investigación preliminar (20 horas).
+	\item Diseño de esquemáticos del \textit{Gateway} (20 horas).
+	\item Diseño de esquemáticos del nodo sensor (20 horas).
+	\item Construcción de prototipo del \textit{Gateway} (40 horas).
+	\item Construcción de prototipo del nodo sensor (40 horas).
+	\item Diseño de PCB (30 horas).
+	\item Fabricación de PCB (30 horas).
+	\item Compra de componentes (10 horas).
+	\item Armado de PCB (20 horas).
 	\end{enumerate}
-\item Grupo de tareas 3
+\item Desarrollo de firmware (130 horas).
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
+	\item Diseño preliminar (20 horas).
+	\item Diseño detallado para el \textit{Gateway} (40 horas).
+	\item Diseño detallado para el nodo sensor (40 horas).
+	\item Pruebas de funcionamiento (30 horas).
+	\end{enumerate}
+\item Verificación y finalización (40 horas).
+	\begin{enumerate}
+	\item Montaje final (20 horas).
+	\item Pruebas funcionales (20 horas).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: (tantas hs)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
-
-\end{consigna}
+Cantidad total de horas: 600.
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
