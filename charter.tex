@@ -2,6 +2,8 @@
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %codirector, % Uncomment to add a codirector to the title page
 ]{charter}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 
 
@@ -20,8 +22,8 @@
 \autor{Ing. Lucas Gabriel Robles}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{-}
-\pertenenciaDirector{-} 
+\director{Mg. Ing. Leonardo Del Sancio}
+\pertenenciaDirector{FIUBA} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
 \codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
 \pertenenciaCoDirector{FIUBA}
@@ -44,6 +46,8 @@
 
 
 \begin{document}
+\shorthandoff{>}
+\shorthandoff{<}
 
 \maketitle
 \thispagestyle{empty}
@@ -150,7 +154,7 @@ Cliente       & \clientename      &\empclientename	& Jefe de Calidad de Servicio
 %Impulsor     &                   &              	&        	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
 %Colaboradores&                   &              	&        	\\ \hline
-Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
+Orientador    & \supname	      & \pertesupname 	& Director Trabajo Final \\ \hline
 %Equipo       & miembro1 \newline 
 %				miembro2          &              	&        	\\ \hline
 %Opositores   &                   &              	&        	\\ \hline
@@ -194,7 +198,7 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item Los dispositivos deben ser de tipo \textit{Plug and Play}.
 			\item La distancia mínima de comunicación entre los nodos y el \textit{Gateway} debe ser de 3 metros.
-			\item El emparejamiento entre los nodos y el \textit{Gateway} debe ser automática.
+			\item El emparejamiento entre los nodos y el \textit{Gateway} debe ser automático.
 			\item Tanto el \textit{Gateway} como los nodos sensores deben almacenar la información de la red en memoria no volátil.
 			\item Los nodos sensores deben enviar el estado del suministro eléctrico cada 1 minuto.
 		\end{enumerate}
@@ -202,7 +206,7 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item El \textit{Gateway} debe estar basado en un microcontrolador ESP32 del fabricante Espressif.
 			\item Cada nodo sensor debe estar basado en un microcontrolador ESP8266 del fabricante Espressif.
-			\item El \textit{Gateway} debe contar con una fuente de alimentación universal de 220VAC.
+			\item El \textit{Gateway} debe contar con una fuente de alimentación universal de 220 VAC.
 			\item Los nodos sensores deben poseer una fuente de alimentación que utilice energía solar o inducción magnética.
 			\item Los nodos sensores deben poseer 3 entradas de corriente o tensión, las cuales:
 				\begin{itemize}
@@ -211,7 +215,7 @@ Para el desarrollo del presente proyecto se supone que:
 					\item deben soportar hasta 1 A o 5 V en el lado secundario.
 				\end{itemize}						
 		\end{enumerate}
-	\item Requerimiento firmware
+	\item Requerimientos de firmware
 		\begin{enumerate}
 			\item El firmware del \textit{Gateway} debe:
 				\begin{itemize}
@@ -234,13 +238,13 @@ Para el desarrollo del presente proyecto se supone que:
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-Se analizan las historias de usuario con los índices de ponderación, que representan el valor que
-aporta la historia de usuario al cliente o usuario y con el índice de prioridad, que refleja el orden
+Se analizan las historias de usuario con los índices de ponderación que representan el valor que
+aporta la historia de usuario al cliente o usuario y con el índice de prioridad que refleja el orden
 de importancia en la implementación de las historias. Se valora cada dimensión de 1 a 10, donde
 10 representa la ponderación o prioridad más alta. Los \textit{story points} se calculan como la suma
 de la ponderación y la prioridad.
 
-Como encargado del área de calidad de servicio, quiero conocer en tiempo real el estado del suministro eléctrico de cada subestación transformadora para reducir el tiempo en el que los usuarios se encuentran sin suministro.
+Como encargado del área de calidad de servicio quiero conocer en tiempo real el estado del suministro eléctrico de cada subestación transformadora para reducir el tiempo en el que los usuarios se encuentran sin suministro.
 
 \begin{itemize}
 	\item Ponderación: 10.
@@ -248,7 +252,7 @@ Como encargado del área de calidad de servicio, quiero conocer en tiempo real e
 	\item \textit{Story Points:} 18.
 \end{itemize}
 
-Como encargado del área de operaciones, quiero conocer en todo momento el estado de la red de distribución para poder contar con mayor información posible a la hora de realizar las operaciones.
+Como encargado del área de operaciones quiero conocer en todo momento el estado de la red de distribución para poder contar con mayor información posible a la hora de realizar las operaciones.
 
 \begin{itemize}
 	\item Ponderación: 6.
@@ -256,7 +260,7 @@ Como encargado del área de operaciones, quiero conocer en todo momento el estad
 	\item \textit{Story Points:} 11.
 \end{itemize}
 
-Como encargado del área de reclamos, quiero conocer de manera inequívoca e inmediata las zonas que se encuentran afectadas por un corte de energía para poder gestionar eficientemente los recursos humanos con los que contamos.
+Como encargado del área de reclamos quiero conocer de manera inequívoca e inmediata las zonas que se encuentran afectadas por un corte de energía para poder gestionar eficientemente los recursos humanos con los que contamos.
 
 \begin{itemize}
 	\item Ponderación: 9.
@@ -264,7 +268,7 @@ Como encargado del área de reclamos, quiero conocer de manera inequívoca e inm
 	\item \textit{Story Points:} 16.
 \end{itemize}
 
-Como encargado del área de mantenimiento de la red, quiero conocer cuáles son las subestaciones transformadoras o las zonas con mayor tasa de fallas para realizar un mejor plan de mantenimiento y enfocar las inversiones en esos lugares.
+Como encargado del área de mantenimiento de la red quiero conocer cuáles son las subestaciones transformadoras o las zonas con mayor tasa de fallas para realizar un mejor plan de mantenimiento y enfocar las inversiones en esos lugares.
 
 \begin{itemize}
 	\item Ponderación: 5.
@@ -278,6 +282,8 @@ Como encargado del área de mantenimiento de la red, quiero conocer cuáles son 
 Los entregables del proyecto son:
 
 \begin{itemize}
+	\item Un prototipo de \textit{Gateway}.
+	\item Dos prototipos de nodo sensor.
 	\item Manual de uso.
 	\item Diagrama de instalación.
 	\item Listado de materiales.
@@ -290,31 +296,32 @@ Los entregables del proyecto son:
 
 
 \begin{enumerate}
-\item Gestión y documentación (200 horas).
+\item Gestión y documentación (220 horas).
 	\begin{enumerate}
 	\item Planificación del proyecto (40 horas).
+	\item Investigación preliminar (20 horas).
 	\item Documentación de avances (20 horas).
 	\item Confección de la memoria técnica (80 horas).
 	\item Elaboración de la presentación final (20 horas).
 	\item Redacción del manual de usuario (40 horas).
 	\end{enumerate}
-\item Desarrollo de hardware (230 horas).
+\item Desarrollo de hardware (210 horas).
 	\begin{enumerate}
-	\item Investigación preliminar (20 horas).
+	\item Diseño preliminar (20 horas).
 	\item Diseño de esquemáticos del \textit{Gateway} (20 horas).
 	\item Diseño de esquemáticos del nodo sensor (20 horas).
 	\item Construcción de prototipo del \textit{Gateway} (40 horas).
 	\item Construcción de prototipo del nodo sensor (40 horas).
-	\item Diseño de PCB (30 horas).
-	\item Fabricación de PCB (30 horas).
+	\item Diseño de PCB (20 horas).
+	\item Fabricación de PCB (20 horas).
 	\item Compra de componentes (10 horas).
 	\item Armado de PCB (20 horas).
 	\end{enumerate}
 \item Desarrollo de firmware (130 horas).
 	\begin{enumerate}
 	\item Diseño preliminar (20 horas).
-	\item Diseño detallado para el \textit{Gateway} (40 horas).
-	\item Diseño detallado para el nodo sensor (40 horas).
+	\item Desarrollo del código para el \textit{Gateway} (40 horas).
+	\item Desarrollo del código para el nodo sensor (40 horas).
 	\item Pruebas de funcionamiento (30 horas).
 	\end{enumerate}
 \item Verificación y finalización (40 horas).
@@ -326,100 +333,96 @@ Los entregables del proyecto son:
 
 Cantidad total de horas: 600.
 
+%\begin{landscape}
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior. 
+En la Figura 2 se observa el diagrama de \textit{Activity on Node} con los tiempos en horas de trabajo.
+El camino critico se encuentra resaltado con trazo grueso, en el que se totalizan 390 horas.
+\\
 
-%La figura \ref{fig:AoN} fue elaborada con el paquete latex tikz y pueden consultar la siguiente referencia \textit{online}:
+\begin{tikzpicture}[
+hito/.style={rectangle, draw=black!60, fill=red!20, very thick, minimum size=10mm, scale=0.6, align=center},
+plan/.style={rectangle, draw=black!60, fill=green!20, very thick, minimum size=10mm, scale=0.6, align=center},
+hw/.style={rectangle, draw=black!60, fill=blue!20, very thick, minimum size=10mm, scale=0.6, align=center},
+fw/.style={rectangle, draw=black!60, fill=yellow!20, very thick, minimum size=10mm, scale=0.6, align=center},
+scale=3
+]
+%Nodes
+\node[hito]	(iniciar)																{Inicio\\ 20/10/2022};
+\node[plan]	(planificar)		[right= 0.5cm of iniciar]							{Planificación\\ (40 horas)};
+\node[plan]	(investigar)	 	[right= 0.5cm of planificar]						{Investigación preliminar,\\ estado del arte\\ (20 horas)};
+\node[fw]	(firmware_pre)	 	[above right= 0.5cm and 0.5cm of investigar]		{Firmware:\\ Diseño preliminar\\ (20 horas)};
+\node[hw]	(hardware_pre)	 	[below right= 0.5cm and 0.5cm of investigar]		{Hardware:\\ Diseño preliminar\\ (20 horas)};
+\node[fw]	(firmware_gw_dis)	[above right= -0.1cm and 0.5cm of firmware_pre]		{Gateway: Desarrollo de firmware\\ (40 horas)};
+\node[fw]	(firmware_nodo_dis)	[below right= -0.1cm and 0.5cm of firmware_pre]		{Nodo sensor: Desarrollo de firmware\\ (40 horas)};
+\node[hw]	(hardware_gw_dis)	[above right= -0.1cm and 0.5cm of hardware_pre]		{Gateway:\\ Diseño de esquemáticos\\ (20 horas)};
+\node[hw] 	(hardware_nodo_dis)	[below right= -0.1cm and 0.5cm of hardware_pre]		{Nodo sensor:\\ Diseño de esquemáticos\\ (20 horas)};
+\node[hw] 	(hardware_gw_prot)	[right= 0.5cm of hardware_gw_dis]					{Construcción\\ de prototipo\\ (40 horas)};
+\node[hw] 	(hardware_nodo_prot)[right= 0.5cm of hardware_nodo_dis]					{Construcción\\ de prototipo\\ (40 horas)};
+\node[hito] (firmware_test)		[right= 8.3cm of investigar]						{Pruebas de\\ funcionamiento\\ (30 horas)};
+\node[hw] 	(hardware_pcb_dis)	[below right= 3.5cm and -0.6cm of iniciar]			{Diseño de PCB\\ (20 horas)};
+\node[hw] 	(hardware_comp_buy)	[below= 1.6cm of hardware_pcb_dis]					{Compra de\\ componentes\\ (10 horas)};
+\node[hw] 	(hardware_pcb_make)	[right= 0.5cm of hardware_pcb_dis]					{Fabricación\\ de PCB\\ (20 horas)};
+\node[hw] 	(hardware_pcb_asm)	[below right= 0.5cm and 0.5cm of hardware_pcb_make]	{Armado\\ de PCB\\ (20 horas)};
+\node[hw] 	(final_assembly)	[right= 0.5cm of hardware_pcb_asm]						{Ensamblado\\ final\\ (20 horas)};
+\node[hito]	(final_test)		[right= 0.5cm of final_assembly]					{Pruebas\\ funcionales\\ (20 horas)};
+\node[plan]	(progress_doc)		[above= 0.5cm of firmware_gw_dis]					{Documentación de avances\\ (20 horas)};
+\node[plan] (tech_mem_make)		[above right= 0.5cm and 0.5cm of final_test]		{Confección de\\ memoria técnica\\ (80 horas)};
+\node[plan] (presentation_make)	[below right= 0.5cm and 0.5cm of final_test]		{Elaboración de\\ presentación final\\ (20 horas)};
+\node[plan] (user_manual_make)	[above right= 0.5cm and 0.5cm of presentation_make]	{Redacción del\\ manual de usuario\\ (40 horas)};
+\node[hito]	(finalizar)			[right= 0.5cm of user_manual_make]					{Fin\\ A definir};
 
-%\url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)\%E2\%80\%94Creating_Flowcharts}
+%Lines
+\draw[ultra thick, ->] (iniciar.east)			-- 					(planificar.west);
+\draw[ultra thick, ->] (planificar.east)		-- 					(investigar.west);
+\draw[thick, ->] (investigar.east)				--	+(0.1,0)	|-	(firmware_pre.west);
+\draw[ultra thick, ->] (investigar.east)		-- 	+(0.1,0)	|-	(hardware_pre.west);
+\draw[thick, ->] (investigar.east)				--	+(0.1,0)	|-	(progress_doc.west);
+\draw[thick, ->] (firmware_pre.east)			-- 	+(0.1,0)	|-	(firmware_gw_dis.west);
+\draw[thick, ->] (firmware_pre.east)			-- 	+(0.1,0)	|-	(firmware_nodo_dis.west);
+\draw[ultra thick, ->] (hardware_pre.east)		-- 	+(0.1,0)	|-	(hardware_gw_dis.west);
+\draw[ultra thick, ->] (hardware_pre.east)		-- 	+(0.1,0)	|-	(hardware_nodo_dis.west);
+\draw[thick, ->] (firmware_gw_dis.east)			-- 	+(0.46,0)	|-	(firmware_test);
+\draw[thick, ->] (firmware_nodo_dis.east)		--	+(0.34,0)	|-	(firmware_test);
+\draw[ultra thick, ->] (hardware_gw_dis.east)	--	+(0.1,0)	|-	(hardware_gw_prot.west);
+\draw[ultra thick, ->] (hardware_nodo_dis.east)	--	+(0.1,0)	|-	(hardware_nodo_prot.west);
+\draw[ultra thick, ->] (hardware_gw_prot.east)	--	+(0.1,0)	|-	(firmware_test.west);
+\draw[ultra thick, ->] (hardware_nodo_prot.east)--	+(0.1,0)	|-	(firmware_test.west);
+\draw[ultra thick, ->] (firmware_test.east)		--	+(0.1,0)	--	+(0.1,-1.05) -- (-0.1,-1.05) |- (hardware_pcb_dis.west);
+\draw[thick, ->] (hardware_pcb_dis.west)		--	+(-0.123,0)	|-	(hardware_comp_buy.west);
+\draw[ultra thick, ->] (hardware_pcb_dis.east)	--					(hardware_pcb_make.west);
+\draw[ultra thick, ->] (hardware_pcb_make.east)	--	+(0.1,0)	|-	(hardware_pcb_asm.west);
+\draw[thick, ->] (hardware_comp_buy.east)		--	+(0.755,0)	|-	(hardware_pcb_asm.west);
+\draw[thick,  -] (progress_doc.east)			--	+(1.5,0)	--	+(1.5,-2.3)	--	+(-0.88,-2.3) -- +(-0.88, -2.55);
+\draw[ultra thick, ->] (hardware_pcb_asm.east)	--					(final_assembly.west);
+\draw[ultra thick, ->] (final_assembly.east)	--					(final_test.west);
+\draw[ultra thick, ->] (final_test.east)		--	+(0.1,0)	|-	(tech_mem_make.west);
+\draw[thick, ->] (final_test.east)				--	+(0.1,0)	|-	(presentation_make.west);
+\draw[ultra thick, ->] (tech_mem_make.east)		--	+(0.135,0)	|-	(user_manual_make.west);
+\draw[thick, ->] (presentation_make.east)		--	+(0.1,0)	|-	(user_manual_make.west);
+\draw[ultra thick, ->] (user_manual_make.east)	--	+(0.1,0)	--	(finalizar.west);
 
-\end{consigna}
 
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
-\caption{Diagrama en \textit{Activity on Node}}
-\label{fig:AoN}
-\end{figure}
+\end{tikzpicture}
+%\end{landscape}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semicríticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color, como se muestra en el siguiente ejemplo:
-
-
-
+\begin{landscape}
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-
-Existen muchos programas y recursos \textit{online} para hacer diagramas de gantt, entre los cuales destacamos:
-
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-\begin{figure}[htbp]
-\begin{center}
-\begin{ganttchart}{1}{12}
-  \gantttitle{2020}{12} \\
-  \gantttitlelist{1,...,12}{1} \\
-  \ganttgroup{Group 1}{1}{7} \\
-  \ganttbar{Task 1}{1}{2} \\
-  \ganttlinkedbar{Task 2}{3}{7} \ganttnewline
-  \ganttmilestone{Milestone o hito}{7} \ganttnewline
-  \ganttbar{Final Task}{8}{12}
-  \ganttlink{elem2}{elem3}
-  \ganttlink{elem3}{elem4}
-\end{ganttchart}
-\end{center}
-\caption{Diagrama de gantt de ejemplo}
-\label{fig:gantt}
-\end{figure}
-
-
-\begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt rotado}
+\includegraphics[height=.72\textheight]{./Figuras/Gantt.png}
+\caption{Diagrama de Gantt}
 \label{fig:diagGantt}
 \end{figure}
 
 \end{landscape}
 
-\end{consigna}
-
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
-
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-\end{consigna}
 
 \begin{table}[htpb]
 \centering
@@ -430,26 +433,42 @@ IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
 \rowcolor[HTML]{C0C0C0} 
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario (AR\$)} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total(AR\$)} \\ \hline
+ESP32 Development Board &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{4285} &
+  \multicolumn{1}{c|}{4285} \\ \hline
+ESP8266 Development Board &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{2000} &
+  \multicolumn{1}{c|}{4000} \\ \hline
+SX1278 LoRa Module &
+  \multicolumn{1}{c|}{3} &
+  \multicolumn{1}{c|}{3542} &
+  \multicolumn{1}{c|}{10626} \\ \hline
+Sensor de corriente efecto Hall 100 A &
+  \multicolumn{1}{c|}{3} &
+  \multicolumn{1}{c|}{4415} &
+  \multicolumn{1}{c|}{13245} \\ \hline
+Batería de litio 18650 3,7 V &
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{2230} &
+  \multicolumn{1}{c|}{4460} \\ \hline
+Fabricación de PCB &
+  \multicolumn{1}{c|}{3} &
+  \multicolumn{1}{c|}{3000} &
+  \multicolumn{1}{c|}{9000} \\ \hline
+Resistencias, capacitores, conectores, etc &
+  \multicolumn{1}{c|}{3} &
+  \multicolumn{1}{c|}{1000} &
+  \multicolumn{1}{c|}{3000} \\ \hline
+Hora de trabajo &
+  \multicolumn{1}{c|}{600} &
+  \multicolumn{1}{c|}{2000} &
+  \multicolumn{1}{c|}{1200000} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{1248616} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -457,23 +476,16 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+40\% de los costos directos &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{19449,40} \\ \hline
+
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{19449,40} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+\multicolumn{3}{|c|}{TOTAL} & 
+\multicolumn{1}{c|}{1268062,40} \\ \hline
 \end{tabularx}%
 \end{table}
 
